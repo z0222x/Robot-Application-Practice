@@ -1,0 +1,48 @@
+<!-- 网页有啥东西  -->
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C++ 远程控制 3D 方块</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="importmap">  
+  {
+    "imports": { 
+      "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",   
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div class="layout">
+    <header>
+      <div>
+        <h1>C++ 驱动的 3D 方块</h1>
+      </div>
+      <span class="status offline" id="connection">● WebSocket 未连接</span>
+    </header>
+    <main>
+      <section class="scene-panel">
+        <div id="viewport"></div>
+        <div class="scene-note">鼠标左键旋转视角 · 滚轮缩放 · 右键平移</div>
+      </section>
+      <aside class="side-panel">
+        <h2>实时运动状态</h2>
+        <div class="stat-title">当前坐标 (X, Y, Z)</div>
+        <div class="coordinate" id="position">0.00, 0.00, 0.00</div>
+        <div class="stat-title">当前目标</div>
+        <div class="detail" id="target">等待指令</div>
+        <div class="stat-title">速度</div>
+        <div class="detail" id="speed">0.00 单位/秒</div>
+        <div class="stat-title">路径进度</div>
+        <div class="detail" id="progress">0 / 0</div>
+        <div class="status-box" id="motion-status">等待控制器发送指令</div>
+      </aside>
+    </main>
+  </div>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
